@@ -1,0 +1,125 @@
+<!-- START OF FILE details.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل العقار - THE ELITE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+    </nav>
+
+    <section class="property-detail-section section"> <!-- Added section class -->
+        <!-- Header with Title, Location, Price -->
+        <div class="property-detail-header">
+            <h1 id="property-title">جارٍ تحميل اسم العقار...</h1>
+            <p class="location" id="property-location"><i class="fas fa-map-marker-alt"></i> جارٍ تحميل الموقع...</p>
+            <p class="price" id="property-price"><i class="fas fa-tag"></i> جارٍ تحميل السعر...</p>
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="property-gallery">
+            <div class="main-image-container">
+                <img src="placeholder.jpg" alt="صورة العقار الرئيسية" id="main-property-image">
+                 <!-- Gallery Navigation Arrows (Optional - requires more JS) -->
+                 <!-- <button class="gallery-nav prev"><i class="fas fa-chevron-left"></i></button> -->
+                 <!-- <button class="gallery-nav next"><i class="fas fa-chevron-right"></i></button> -->
+            </div>
+            <div class="thumbnail-container" id="thumbnail-images">
+                <!-- سيتم تحميل الصور المصغرة هنا بواسطة JavaScript -->
+                <p>جارٍ تحميل الصور...</p>
+            </div>
+        </div>
+
+        <!-- Property Details Blocks -->
+        <div class="details-container">
+            <!-- Description Block -->
+            <div class="detail-block description-block">
+                <h2><i class="fas fa-info-circle"></i> وصف العقار</h2>
+                <p id="property-description-text">جارٍ تحميل الوصف...</p>
+            </div>
+
+            <!-- Features Block -->
+            <div class="detail-block features-block">
+                <h2><i class="fas fa-star"></i> المميزات الرئيسية</h2>
+                <ul id="property-features-list">
+                     <li>جارٍ تحميل المميزات...</li>
+                </ul>
+            </div>
+
+            <!-- Map Block (Placeholder) -->
+            <div class="detail-block map-block">
+                 <h2><i class="fas fa-map-marked-alt"></i> الموقع على الخريطة</h2>
+                 <div id="map-placeholder" style="background-color: #ffffff; text-align: center; padding: 3rem 1rem; border-radius: 8px; color: #ffffff;">
+                    <p></p>
+                    <p><small>(    الموقع تحديدا )</small></p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1263.0740835818356!2d31.6001841892563!3d30.073703571545572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z2YPZiNmF2KjYp9mI2YbYryDZhdin2YjZhtiq2YYg2YHZitmIINin2Ykg2LPZitiq2Yo!5e1!3m2!1sen!2seg!4v1746575381552!5m2!1sen!2seg" width="1100" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
+                 </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons-container">
+            <button id="checkout-btn" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> طلب شراء / إبداء حجز</button>
+            <button id="contact-agent-btn" class="btn btn-secondary"><i class="fas fa-mobile-alt"></i>  تواصل معنا للاستفسار عن العقار</button>
+        </div>
+
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-right"></i> العودة إلى القائمة الرئيسية</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+             <div class="footer-section">
+                <h4>عنا</h4>
+                <p>شركة رائدة في مجال التسويق العقاري، نقدم حلولاً شاملة لعملائنا.</p>
+            </div>
+            <div class="footer-section">
+                <h4>روابط سريعة</h4>
+                 <ul>
+                    <li><a href="index.html#properties">عقارات</a></li>
+                    <li><a href="index.html#lands">أراضي</a></li>
+                    <li><a href="index.html#villas">فلل</a></li>
+                    <li><a href="index.html#palaces">قصور</a></li>
+                     <li><a href="index.html#contact">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>القائمة البريدية</h4>
+                 <form class="newsletter" id="newsletter-form-details"> <!-- Different ID -->
+                     <input type="email" name="newsletter_email" placeholder="بريدك الإلكتروني" required>
+                    <button type="submit">اشترك</button>
+                </form>
+                 <p id="newsletter-feedback-details" style="font-size: 0.85rem; margin-top: 0.5rem;"></p>
+            </div>
+        </div>
+        <div class="copyright">
+             <p>© <span id="current-year-details"></span> THE ELITE. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+     <script>
+        // Simple script for dynamic year and newsletter simulation (details page)
+        document.getElementById('current-year-details').textContent = new Date().getFullYear();
+        const newsletterFormDetails = document.getElementById('newsletter-form-details');
+        const newsletterFeedbackDetails = document.getElementById('newsletter-feedback-details');
+        if (newsletterFormDetails && newsletterFeedbackDetails) {
+            newsletterFormDetails.addEventListener('submit', function(e) {
+                e.preventDefault();
+                newsletterFeedbackDetails.textContent = 'شكراً لاشتراكك!';
+                newsletterFeedbackDetails.style.color = 'var(--accent-color)';
+                newsletterFormDetails.reset();
+                setTimeout(() => { newsletterFeedbackDetails.textContent = ''; }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>
+<!-- END OF FILE details.html -->

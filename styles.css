@@ -1,0 +1,1216 @@
+/* START OF FILE styles.css */
+/* ملف التنسيقات المحدث والنهائي */
+:root {
+    --primary-color: #2c3e50; /* Dark Blue-Gray */
+    --secondary-color: #3498db; /* Bright Blue */
+    --accent-color: #f1c40f; /* Yellow */
+    --text-color: #333; /* Dark Gray for text */
+    --light-bg: #f8f9fa; /* Very Light Gray Background */
+    --dark-color: #1a252f; /* Darker Blue-Gray for Footer */
+    --gray-color: #7f8c8d; /* Medium Gray */
+    --success-color: #27ae60; /* Green for Price/Success */
+    --light-border-color: #e9ecef; /* Light border color */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchors */
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    position: relative; /* Needed for potential absolute positioning */
+    direction: rtl; /* Ensure RTL direction */
+}
+
+/* --- General Elements --- */
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: var(--accent-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* --- Header --- */
+header {
+    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+                url('header-bg.jpg') center/cover no-repeat; /* Ensure you have header-bg.jpg */
+    color: white;
+    padding: 5rem 0; /* Increased padding */
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white; /* Override general h1 color */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: fadeInDown 1s ease;
+}
+
+header p {
+    margin: 1rem 0 2rem;
+    font-size: 1.5rem;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease;
+}
+
+.search-bar {
+    display: flex;
+    max-width: 600px;
+    margin: 2rem auto 0;
+    animation: fadeIn 1.5s ease;
+    border-radius: 30px; /* Rounded corners for the whole bar */
+    overflow: hidden; /* Clip children */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 1rem 1.5rem; /* Adjust padding */
+    border: none;
+    /* Removed border-radius here, applied to parent */
+    font-size: 1.1rem;
+    outline: none;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.search-bar button {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 0 1.8rem; /* Adjust padding */
+    /* Removed border-radius here */
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #e67e22; /* Darker accent */
+}
+
+/* --- Navigation Bar --- */
+nav {
+    background-color: var(--primary-color);
+    padding: 1rem 0; /* Adjusted padding */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* High z-index */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1.5rem; /* Adjusted margin */
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    padding: 0.5rem 0;
+    border-bottom: 3px solid transparent; /* Thicker border */
+    display: flex;
+    align-items: center;
+}
+
+nav a i {
+    margin-left: 8px; /* Space for RTL */
+    font-size: 1rem;
+}
+
+nav a:hover, nav a.active { /* Style for active link if needed */
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+/* --- Main Sections --- */
+.section {
+    padding: 4rem 2rem; /* Consistent padding */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section h2 { /* Style for main section titles (Properties, Lands, etc.) */
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section h2 span { /* For the colored part of the title */
+    color: var(--secondary-color);
+}
+
+.section h2::after { /* Underline for section titles */
+    content: "";
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: var(--accent-color);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* --- Property Cards (index.html) --- */
+.property-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+    padding-top: 1rem; /* Space below title */
+}
+.property-container > p { /* Loading/No results message */
+     grid-column: 1 / -1;
+     text-align: center;
+     color: var(--gray-color);
+     padding: 2rem;
+}
+
+.property-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(44, 62, 80, 0.1); /* Adjusted shadow color */
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex; /* Use flexbox for better structure */
+    flex-direction: column;
+}
+
+.property-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(44, 62, 80, 0.15);
+}
+
+.property-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.property-card:hover img {
+    transform: scale(1.05);
+}
+
+.property-type {
+    position: absolute;
+    top: 15px; /* Adjusted position */
+    left: 15px; /* Adjusted position */
+    background-color: rgba(44, 62, 80, 0.8); /* Darker semi-transparent background */
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    z-index: 1;
+}
+
+.property-info {
+    padding: 1.5rem; /* Adjusted padding */
+    flex-grow: 1; /* Allow info to fill space */
+    display: flex;
+    flex-direction: column;
+}
+
+.property-info h3 {
+    margin: 0 0 0.8rem;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.3; /* Adjust line height */
+}
+
+.property-info .location {
+    color: var(--secondary-color);
+    margin-bottom: 0.8rem; /* Adjusted margin */
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    gap: 6px; /* Gap between icon and text */
+}
+
+.property-info .price {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: var(--success-color);
+    margin-bottom: 1rem; /* Adjusted margin */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.property-info .details {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 12px; /* Increased gap */
+    margin-top: auto; /* Push details down */
+    padding-top: 1rem; /* Space above details */
+    border-top: 1px solid var(--light-border-color); /* Separator */
+    color: var(--gray-color);
+    font-size: 0.9rem; /* Adjusted font size */
+}
+
+.property-info .details span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+/* --- General Button Styles --- */
+.btn {
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    line-height: 1.2; /* Ensure text vertical alignment */
+}
+.btn i { font-size: 1em; /* Icon size relative to button text */ }
+
+/* Primary Button (Accent Color) */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+.btn-primary:hover {
+    background-color: #e67e22; /* Darker accent */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Secondary Button (Primary Color) */
+.btn-secondary {
+    background-color: var(--primary-color);
+    color: white;
+    border: 1px solid var(--primary-color);
+}
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Details Button specific style (inside property card) */
+.details-btn { /* Inherits from .btn */
+    width: 100%;
+    margin-top: 1rem; /* Space above button */
+     background-color: var(--primary-color); /* Match secondary style */
+    color: white;
+}
+.details-btn:hover {
+    background-color: var(--secondary-color);
+     border-color: var(--secondary-color);
+}
+
+
+/* Highlighted Property Card */
+.highlight {
+    border: 3px solid var(--accent-color);
+    position: relative;
+}
+
+.highlight::before { /* "مميز" Badge */
+    content: "مميز";
+    position: absolute;
+    top: -1px; /* Adjusted for border */
+    right: 15px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.4rem 1rem;
+    border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+    font-weight: bold;
+    z-index: 2;
+    font-size: 0.9rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.contact-section h2 { color: white; }
+.contact-section h2::after { background: var(--accent-color); } /* Match accent */
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive columns */
+    gap: 3rem;
+    align-items: start; /* Align items to top */
+    text-align: right; /* RTL default alignment */
+    padding-top: 2rem; /* Space below title */
+}
+
+.contact-section form {
+    background: rgba(255,255,255,0.05); /* Subtler background */
+    border-radius: 12px;
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-group { /* General form group styling */
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-group i {
+    position: absolute;
+    right: 18px; /* Position icon on the right for RTL */
+    left: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-color);
+    z-index: 2; /* Icon above input */
+    opacity: 0.7;
+}
+.form-group i.select-arrow { /* Specific style for select arrow */
+    color: var(--gray-color);
+    opacity: 1;
+    font-size: 0.8em;
+    right: auto;
+    left: 18px; /* Arrow on the left */
+    pointer-events: none; /* Allow clicking the select */
+}
+
+
+.contact-section input,
+.contact-section select,
+.contact-section textarea,
+.checkout-form input, /* Apply also to checkout form */
+.checkout-form select,
+.checkout-form textarea
+{
+    width: 100%;
+    padding: 1rem 3.5rem 1rem 1.5rem; /* RTL padding: R(icon), L(text) */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for contact */
+    border-radius: 8px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1rem;
+    background-color: rgba(255,255,255,0.9); /* Input background */
+    color: var(--text-color); /* Text color inside input */
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+/* Specific border for checkout form inputs */
+.checkout-form input,
+.checkout-form select,
+.checkout-form textarea {
+     border: 1px solid var(--light-border-color); /* Lighter border */
+}
+
+
+/* Select specific styling */
+.contact-section select,
+.checkout-form select {
+    appearance: none; /* Remove default arrow */
+    cursor: pointer;
+     padding-right: 1.5rem; /* Adjust padding for select text */
+     padding-left: 3.5rem; /* Space for custom arrow */
+}
+
+
+/* Focus styles */
+.contact-section input:focus,
+.contact-section select:focus,
+.contact-section textarea:focus,
+.checkout-form input:focus,
+.checkout-form select:focus,
+.checkout-form textarea:focus {
+    background-color: white;
+    outline: none;
+    border-color: var(--secondary-color); /* Use secondary color for focus */
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2); /* Subtle glow */
+}
+.contact-section input:focus + i,
+.contact-section select:focus + i,
+.contact-section textarea:focus + i,
+.checkout-form input:focus + i,
+.checkout-form select:focus + i,
+.checkout-form textarea:focus + i {
+    opacity: 1; /* Make icon fully visible on focus */
+}
+
+
+.contact-section textarea,
+.checkout-form textarea {
+    min-height: 120px; /* Minimum height */
+    resize: vertical;
+    padding-top: 1rem;
+}
+
+/* Submit Button in Contact Form */
+.contact-section button[type="submit"] { /* Inherits from .btn */
+    width: 100%;
+    margin-top: 1rem; /* Space above button */
+     background-color: var(--accent-color);
+     color: var(--primary-color);
+}
+.contact-section button[type="submit"]:hover {
+    background-color: #e67e22;
+}
+
+/* Contact Info Block */
+.contact-info {
+    text-align: right; /* RTL alignment */
+    padding: 1rem;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+    position: relative;
+    display: inline-block;
+}
+
+.contact-info h3::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 60%; /* Adjust underline width */
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem; /* Gap between icon and text */
+}
+
+.info-item i {
+    font-size: 1.4rem; /* Slightly larger icon */
+    color: var(--accent-color);
+    width: 30px;
+    text-align: center;
+    flex-shrink: 0; /* Prevent icon shrinking */
+}
+
+.info-item p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9); /* Lighter text */
+}
+
+.social-media {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: flex-end; /* Align right */
+}
+
+.social-media a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.social-media a:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--dark-color);
+    color: var(--gray-color); /* Use medium gray for footer text */
+    padding: 3rem 0 0;
+    font-size: 0.95rem; /* Base font size for footer */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+    gap: 2.5rem; /* Increased gap */
+    padding: 0 2rem;
+    text-align: right; /* Default RTL */
+}
+
+.footer-section h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: white; /* White title */
+    position: relative;
+    padding-bottom: 0.5rem;
+    display: inline-block; /* Make underline fit content */
+}
+
+.footer-section h4::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.footer-section p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+    color: var(--gray-color); /* Link color */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block; /* Prevent full width */
+}
+
+.footer-section ul li a:hover {
+    color: var(--accent-color);
+    padding-right: 8px; /* Indent on hover (RTL) */
+}
+
+.newsletter {
+    display: flex;
+    margin-top: 1rem; /* Adjusted margin */
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.newsletter input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    /* Removed border-radius */
+    font-family: 'Tajawal', sans-serif;
+    color: var(--text-color);
+    background-color: #fff;
+    font-size: 0.9rem;
+}
+.newsletter input:focus { outline: none; }
+
+.newsletter button {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 0 1.2rem;
+    /* Removed border-radius */
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.newsletter button:hover {
+    background-color: #e67e22;
+}
+
+.copyright {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem; /* Increased margin */
+    background-color: rgba(0,0,0,0.2);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6); /* Lighter copyright text */
+}
+
+
+/* --- Styles for details.html specific elements --- */
+.property-detail-section {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem 2.5rem;
+}
+
+/* Header in Details Page */
+.property-detail-header {
+    border-bottom: 1px solid var(--light-border-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center; /* Center header content */
+}
+.property-detail-header h1 {
+    font-size: 2.4rem; /* Adjusted size */
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+.property-detail-header .location,
+.property-detail-header .price {
+    font-size: 1.1rem;
+    display: inline-flex; /* Keep inline but centered */
+    align-items: center;
+    gap: 8px;
+    margin: 0.3rem 1rem;
+}
+.property-detail-header .location { color: var(--secondary-color); }
+.property-detail-header .price { color: var(--success-color); font-weight: bold; font-size: 1.4rem; }
+
+/* Image Gallery in Details Page */
+.property-gallery {
+    margin-bottom: 2.5rem;
+}
+.main-image-container {
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+    background-color: var(--light-bg); /* Light background */
+    border-radius: 8px;
+    overflow: hidden;
+}
+#main-property-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 550px;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover; /* Changed to cover */
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+.thumbnail-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 10px;
+}
+.thumbnail-container p { /* Loading message style */
+    color: var(--gray-color);
+    font-size: 0.9rem;
+}
+.thumbnail-image {
+    width: 90px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 3px solid transparent; /* Thicker border for active state */
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+.thumbnail-image:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+.thumbnail-image.active {
+    border-color: var(--accent-color);
+    opacity: 1;
+    transform: scale(1.08);
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.5); /* Glow for active */
+}
+
+/* Details Blocks Container */
+.details-container {
+    margin-top: 2rem;
+    border-top: 1px solid var(--light-border-color);
+    padding-top: 2rem;
+}
+.detail-block {
+    background-color: #fff; /* White background for blocks */
+    padding: 1.8rem; /* Increased padding */
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--light-border-color);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.04); /* Subtle shadow */
+}
+.detail-block h2 {
+    font-size: 1.5rem; /* Adjusted size */
+    color: var(--primary-color);
+    margin-bottom: 1.2rem; /* Increased margin */
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+.detail-block p, .detail-block li {
+    color: var(--text-color); /* Use standard text color */
+    line-height: 1.7;
+    font-size: 1rem;
+}
+.features-block ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive columns */
+    gap: 1rem;
+}
+.features-block li {
+    background-color: var(--light-bg);
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--light-border-color); /* Subtle border */
+}
+.features-block li i {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    width: 25px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.map-block iframe { /* Style for map iframe if added */
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/* Action Buttons Container in Details Page */
+.action-buttons-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2.5rem; /* Increased margin */
+    margin-bottom: 2rem;
+    padding-top: 2rem; /* Increased padding */
+    border-top: 1px solid var(--light-border-color);
+}
+
+/* Back Link Style */
+.back-link {
+    display: inline-block; /* Make it inline */
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--gray-color); /* Use gray color */
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    font-size: 0.95rem;
+}
+.back-link:hover {
+    background-color: var(--primary-color); /* Darken on hover */
+}
+.back-link i {
+    margin-left: 5px; /* RTL space */
+}
+.back-link-container { /* Container for multiple back links */
+     margin-top: 2.5rem;
+     text-align: center;
+}
+.back-link-container .back-link {
+     margin: 0 0.5rem; /* Space between links */
+}
+
+
+/* --- Styles for Checkout Page (checkout.html) --- */
+.checkout-section {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2.5rem; /* Adjusted padding */
+}
+
+/* Header styling in Checkout Page */
+.checkout-section .page-main-title {
+    text-align: center;
+    font-size: 2.2rem; /* Adjusted size */
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.checkout-section .page-main-title::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: var(--accent-color);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.checkout-section .page-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--gray-color);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Property Summary in Checkout Page */
+.property-summary {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    background-color: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid var(--light-border-color);
+}
+.property-summary img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+.property-summary-info { flex-grow: 1; }
+.property-summary-info h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+.property-summary-info p {
+    margin-bottom: 0.3rem;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem; /* Ensure consistent size */
+}
+.property-summary-info p .fa-tag { color: var(--success-color); } /* Price tag color */
+
+
+/* Checkout Form Specifics */
+.checkout-form h2 {
+    /* Similar to detail block title */
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Terms Agreement Styling */
+.checkout-form .terms-agreement {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-right: 5px; /* Align checkbox */
+}
+.checkout-form .terms-agreement input[type="checkbox"] {
+    margin-left: 10px; /* RTL space */
+    flex-shrink: 0;
+    /* Styles from inline removed - apply here if needed */
+    /* width: auto; height: auto; */
+}
+.checkout-form .terms-agreement label {
+    font-size: 0.95rem;
+    color: #555;
+    cursor: pointer;
+}
+
+/* Checkout Submit Button (uses .btn and .btn-primary) */
+.checkout-form button[type="submit"] {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Confirmation Message */
+.confirmation-message {
+    display: none; /* Hidden by default */
+    padding: 1.5rem;
+    background-color: #d4edda; /* Light green background */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+}
+.confirmation-message i {
+    margin-left: 8px; /* RTL space */
+    color: #155724;
+}
+
+
+/* --- Animations --- */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .contact-container { grid-template-columns: 1fr; }
+    .contact-info { text-align: center; }
+    .contact-info h3::after { right: 50%; transform: translateX(50%); }
+    .social-media { justify-content: center; }
+    .info-item { justify-content: center; }
+     .property-container { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); } /* Adjust card size */
+}
+
+@media (max-width: 768px) {
+    header h1 { font-size: 2.5rem; }
+    header p { font-size: 1.2rem; }
+    nav { flex-direction: column; align-items: center; padding: 1rem 0; position: static; /* Remove sticky on mobile */ }
+    nav a { margin: 0.5rem 0; }
+    .section { padding: 3rem 1rem; }
+     .section h2 { font-size: 2rem; }
+    .property-container { grid-template-columns: 1fr; gap: 1.5rem; }
+    .footer-content { grid-template-columns: 1fr; text-align: center; }
+    .footer-section h4::after { right: 50%; transform: translateX(50%); }
+    .footer-section ul li a:hover { padding-right: 0; }
+    .newsletter { flex-direction: column; align-items: center; max-width: 350px; margin: 1rem auto; }
+    .newsletter input { border-radius: 6px; margin-bottom: 0.5rem; text-align: center; }
+    .newsletter button { border-radius: 6px; padding: 0.8rem; width: 100%; }
+
+    /* Details Responsive */
+    .property-detail-section { padding: 1.5rem; }
+    .property-detail-header h1 { font-size: 1.8rem; }
+    .property-detail-header .location, .property-detail-header .price { font-size: 1rem; margin: 0.2rem 0.5rem;}
+    .thumbnail-image { width: 70px; height: 50px; }
+    .detail-block h2 { font-size: 1.3rem; }
+    .features-block ul { grid-template-columns: 1fr; }
+    .action-buttons-container { flex-direction: column; gap: 0.8rem; align-items: stretch;}
+    .action-buttons-container .btn { width: 100%; }
+
+    /* Checkout Responsive */
+     .checkout-section { padding: 1.5rem; }
+     .checkout-section .page-main-title { font-size: 1.8rem; }
+     .checkout-section .page-subtitle { font-size: 1rem; }
+    .property-summary { flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
+     .property-summary img { width: 80%; max-width: 250px; height: auto; }
+    .property-summary-info p { justify-content: center; }
+    .checkout-form h2 { font-size: 1.4rem; text-align: center; display: block; border-bottom: none; }
+     .checkout-form h2::after { content: ""; display: block; width: 80px; height: 3px; background: var(--accent-color); margin: 0.5rem auto 1rem; border-radius: 2px; }
+
+     /* Form Group Icons RTL Mobile */
+     .form-group i { right: 15px; }
+      .form-group i.select-arrow { left: 15px; }
+     .contact-section input, .contact-section select, .contact-section textarea,
+     .checkout-form input, .checkout-form select, .checkout-form textarea { padding: 1rem 3rem 1rem 1rem; }
+}
+
+@media (max-width: 576px) {
+    header { min-height: 50vh; padding: 3rem 0; }
+    header h1 { font-size: 2rem; }
+     .section h2 { font-size: 1.8rem; }
+    .property-info h3 { font-size: 1.2rem; }
+    .property-info .price { font-size: 1.1rem; }
+     .property-info .details { font-size: 0.85rem; gap: 8px;}
+    .details-btn { font-size: 0.9rem; padding: 0.7rem 1rem; }
+    .btn { padding: 0.7rem 1.5rem; font-size: 0.95rem; } /* Adjust general button size */
+
+    .contact-section { padding: 3rem 1rem; }
+    .contact-section form { padding: 1.5rem; }
+     .contact-info h3 { font-size: 1.5rem; }
+     .info-item p { font-size: 1rem; }
+
+     .checkout-header h1 { font-size: 1.8rem; }
+     .checkout-header p { font-size: 1rem; }
+     .checkout-form h2 { font-size: 1.3rem; }
+    .checkout-form input, .checkout-form textarea, .checkout-form button[type="submit"] { font-size: 0.95rem; }
+    .checkout-form .terms-agreement label { font-size: 0.9rem; }
+
+    .property-detail-header h1 { font-size: 1.6rem; }
+     .property-detail-header .price { font-size: 1.2rem; }
+     .detail-block h2 { font-size: 1.2rem; }
+     .detail-block p, .detail-block li { font-size: 0.95rem;}
+
+     .footer-content { gap: 1.5rem; }
+     .footer-section h4 { font-size: 1.2rem; }
+     .footer-section p, .footer-section ul li a { font-size: 0.9rem; }
+     .copyright { font-size: 0.8rem; }
+}
+/* --- تنسيق شريط اختيار طريقة الدفع --- */
+
+.payment-methods {
+    margin-bottom: 2rem; /* مسافة أكبر بعد قسم الدفع */
+}
+
+.payment-methods h4 {
+    font-size: 1.2rem; /* حجم أصغر قليلاً من عنوان النموذج الرئيسي */
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.payment-options-bar {
+    display: flex;
+    border: 1px solid var(--light-border-color); /* حدود حول الشريط بالكامل */
+    border-radius: 8px; /* حواف دائرية للشريط */
+    overflow: hidden; /* لإخفاء أي تجاوز وضمان شكل الشريط */
+    background-color: #fff; /* خلفية بيضاء للشريط */
+}
+
+.payment-option {
+    flex: 1 1 auto; /* يسمح للأزرار بأخذ مساحة متساوية والتمدد */
+    text-align: center;
+    /* border-left: 1px solid var(--light-border-color); /* خط فاصل بين الأزرار (لـ RTL) */
+}
+
+/* إزالة الخط الفاصل من أول عنصر في RTL */
+/* .payment-option:first-child {
+    border-left: none;
+} */
+/* أو إزالة الخط من آخر عنصر في LTR */
+ .payment-option:last-child label {
+     border-left: none; /* No border on the very left in RTL */
+ }
+
+
+.payment-option input[type="radio"] {
+    /* إخفاء زر الراديو الافتراضي مع الحفاظ على الوصولية */
+    opacity: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+.payment-option label {
+    display: block; /* يجعل الليبل يأخذ عرض الحاوية */
+    padding: 1rem 0.5rem; /* حشو داخلي لليبل */
+    cursor: pointer;
+    background-color: #fff; /* خلفية الليبل الافتراضية */
+    color: var(--gray-color); /* لون النص الافتراضي */
+    transition: all 0.3s ease;
+    font-weight: normal;
+    font-size: 0.95rem;
+    border-left: 1px solid var(--light-border-color); /* Separator border */
+}
+
+.payment-option label i {
+    display: block; /* يجعل الأيقونة فوق النص */
+    margin-bottom: 0.4rem; /* مسافة بين الأيقونة والنص */
+    font-size: 1.5em; /* حجم الأيقونة */
+    color: var(--secondary-color); /* لون الأيقونة الافتراضي */
+     transition: color 0.3s ease;
+}
+
+/* تنسيق عند المرور بالفأرة (Hover) */
+.payment-option label:hover {
+    background-color: var(--light-bg); /* تغيير طفيف في الخلفية */
+    color: var(--primary-color);
+}
+.payment-option label:hover i {
+    color: var(--primary-color);
+}
+
+/* تنسيق عند الاختيار (Checked) */
+.payment-option input[type="radio"]:checked + label {
+    background-color: var(--secondary-color); /* لون الخلفية عند الاختيار */
+    color: white; /* لون النص عند الاختيار */
+    font-weight: bold;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); /* ظل داخلي بسيط */
+}
+
+.payment-option input[type="radio"]:checked + label i {
+    color: white; /* لون الأيقونة عند الاختيار */
+}
+
+/* تنسيق ملاحظة الدفع */
+.payment-note {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--gray-color);
+    text-align: center; /* أو right حسب الرغبة */
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .payment-options-bar {
+        flex-direction: column; /* ترتيب عمودي */
+        border-radius: 8px; /* الحفاظ على الحواف */
+    }
+    .payment-option label {
+        border-left: none; /* إزالة الخط الفاصل العمودي */
+        border-bottom: 1px solid var(--light-border-color); /* إضافة خط فاصل أفقي */
+        text-align: right; /* محاذاة النص لليمين */
+        padding: 0.8rem 1rem; /* تعديل الحشو */
+        display: flex; /* لترتيب الأيقونة والنص أفقيًا */
+        align-items: center;
+        gap: 10px;
+    }
+     .payment-option label i {
+        display: inline-block; /* جعل الأيقونة بجانب النص */
+        margin-bottom: 0;
+        font-size: 1.2em; /* تصغير الأيقونة قليلاً */
+        width: 25px; /* تحديد عرض للأيقونة للمحاذاة */
+        text-align: center;
+     }
+    .payment-option:last-child label {
+        border-bottom: none; /* إزالة الخط السفلي من آخر عنصر */
+    }
+}
+
+/* --- نهاية تنسيق شريط طريقة الدفع --- */

@@ -1,0 +1,154 @@
+<!-- START OF FILE checkout.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إتمام الطلب - THE ELITE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+         <a href="details.html" id="nav-back-to-details"><i class="fas fa-arrow-left"></i> العودة للتفاصيل</a>
+    </nav>
+
+    <section class="checkout-section section">
+        <h1 class="page-main-title"><i class="fas fa-shopping-cart"></i> تأكيد شراء او حجز العقار</h1>
+        <p class="page-subtitle">يرجى ملء بياناتك وسيقوم أحد ممثلينا بالتواصل معك قريبًا لمتابعة طلبك.</p>
+
+        <div class="property-summary">
+            <img src="placeholder.jpg" alt="صورة العقار" id="checkout-property-image">
+            <div class="property-summary-info">
+                <h3 id="checkout-property-title">جارٍ تحميل اسم العقار...</h3>
+                <p id="checkout-property-location"><i class="fas fa-map-marker-alt"></i> جارٍ تحميل الموقع...</p>
+                <p id="checkout-property-price"><i class="fas fa-tag"></i> جارٍ تحميل السعر...</p>
+                <input type="hidden" id="checkout-property-id" value="">
+            </div>
+        </div>
+
+        <form class="checkout-form" id="checkout-form">
+            <h2><i class="fas fa-user-edit"></i> بيانات التواصل</h2>
+            <div class="form-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="checkout-name" placeholder="الاسم الكامل" required>
+            </div>
+            <div class="form-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="checkout-email" placeholder="البريد الإلكتروني" required>
+            </div>
+            <div class="form-group">
+                <i class="fas fa-phone"></i>
+                <input type="tel" id="checkout-phone" placeholder="رقم الهاتف" required>
+            </div>
+
+        <!-- **** بداية كود شريط طريقة الدفع **** -->
+        <div class="form-group payment-methods">
+            <h4><i class="fas fa-credit-card"></i> اختر طريقة الدفع المبدئية</h4>
+            <div class="payment-options-bar" role="radiogroup" aria-labelledby="payment-method-heading">
+                
+                <div class="payment-option">
+                    <input type="radio" id="payment-visa" name="payment_method" value="visa" checked required> 
+                    <label for="payment-visa">
+                        <i class="fab fa-cc-visa"></i> فيزا / ماستركارد
+                    </label>
+                </div>
+        
+                <div class="payment-option">
+                    <input type="radio" id="payment-cash" name="payment_method" value="cash" required>
+                    <label for="payment-cash">
+                        <i class="fas fa-money-bill-wave"></i> كاش عند التعاقد
+                    </label>
+                </div>
+        
+                <div class="payment-option">
+                    <input type="radio" id="payment-bank" name="payment_method" value="bank" required>
+                    <label for="payment-bank">
+                        <i class="fas fa-university"></i> حوالة بنكية
+                    </label>
+                </div>
+        
+            </div>
+             <p class="payment-note"><small>ملاحظة: هذه خطوة مبدئية، سيتم تأكيد تفاصيل الدفع النهائية والتنسيق معكم لاحقًا.</small></p>
+        </div>
+        <!-- **** نهاية كود شريط طريقة الدفع تمام**** -->        
+
+             <div class="form-group">
+                <i class="fas fa-comment"></i>
+                <textarea id="checkout-notes" placeholder="ملاحظات "></textarea>
+            </div>
+
+            <div class="form-group terms-agreement">
+                 <input type="checkbox" id="terms" required style="margin-left: 10px; width: auto; height: auto;">
+                 <label for="terms">أقر بأنني مهتم بهذا العقار وأوافق على أن يتم التواصل معي.</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">إرسال طلب  <i class="fas fa-paper-plane"></i></button>
+        </form>
+
+        <div id="confirmation-message" class="confirmation-message">
+             <p><i class="fas fa-check-circle"></i> تم استلام طلبك بنجاح! سنتواصل معك في أقرب وقت ممكن.</p>
+        </div>
+
+        <div class="back-link-container">
+            <a href="details.html" id="back-to-details" class="back-link"><i class="fas fa-arrow-right"></i> العودة لتفاصيل العقار</a>
+             |
+            <a href="index.html" class="back-link"><i class="fas fa-home"></i> العودة للرئيسية</a>
+        </div>
+    </section>
+
+    <footer>
+       <div class="footer-content">
+             <div class="footer-section">
+                <h4>عنا</h4>
+                <p>شركة رائدة في مجال التسويق العقاري، نقدم حلولاً شاملة لعملائنا.</p>
+            </div>
+            <div class="footer-section">
+                <h4>روابط سريعة</h4>
+                 <ul>
+                    <li><a href="index.html#properties">عقارات</a></li>
+                    <li><a href="index.html#lands">أراضي</a></li>
+                    <li><a href="index.html#villas">فلل</a></li>
+                    <li><a href="index.html#palaces">قصور</a></li>
+                     <li><a href="index.html#contact">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>القائمة البريدية</h4>
+                 <form class="newsletter" id="newsletter-form-checkout"> <!-- Different ID -->
+                     <input type="email" name="newsletter_email" placeholder="بريدك الإلكتروني" required>
+                    <button type="submit">اشترك</button>
+                </form>
+                 <p id="newsletter-feedback-checkout" style="font-size: 0.85rem; margin-top: 0.5rem;"></p>
+            </div>
+        </div>
+        <div class="copyright">
+             <p>© <span id="current-year-checkout"></span> THE ELITE.2025 جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+     <script>
+        // Simple script for dynamic year and newsletter simulation (checkout page)
+        document.getElementById('current-year-checkout').textContent = new Date().getFullYear();
+        const newsletterFormCheckout = document.getElementById('newsletter-form-checkout');
+        const newsletterFeedbackCheckout = document.getElementById('newsletter-feedback-checkout');
+        if (newsletterFormCheckout && newsletterFeedbackCheckout) {
+            newsletterFormCheckout.addEventListener('submit', function(e) {
+                e.preventDefault();
+                newsletterFeedbackCheckout.textContent = 'شكراً لاشتراكك!';
+                newsletterFeedbackCheckout.style.color = 'var(--accent-color)';
+                newsletterFormCheckout.reset();
+                setTimeout(() => { newsletterFeedbackCheckout.textContent = ''; }, 3000);
+            });
+        }
+          // Logic to update nav back link if needed (relies on script.js setting localStorage)
+          const navBackLink = document.getElementById('nav-back-to-details');
+          if (navBackLink && !localStorage.getItem('selectedPropertyId')) {
+              navBackLink.style.display = 'none'; // Hide if no property selected
+          }
+    </script>
+</body>
+</html>
